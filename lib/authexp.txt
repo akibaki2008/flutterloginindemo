@@ -1,0 +1,65 @@
+ //Create a getter to access the auth state changes stream
+  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+  
+  In the provided code snippet, a getter is creates to access the stream of authentication state changes 
+  in a Flutter Application.
+
+  A getter is a method or function that provides access to the value of an object's property. It 
+  allows you to retrieve the value of a property in a controlled manner, encapslating the 
+  internal implementatoin details.
+
+  In object-oriented programming, getters are typiically used to provide read-only access to private
+  or protected properties of an object. INsteadof directly accessing the property, you invoke
+  the getter method, which returns the current value of the property.
+
+  Stream<User?>: This part declares the return type of the getter. It indicates that the getter will 
+  return a 'Stream' object that emits values of type'User?' The 'User?' type represents a nullable instance
+  of the 'User' class. 
+
+  //This getter creates a stream of Firebase User objects, which will update whenever the user's 
+  //authentication state changes. 
+
+  ----------------------------------------------------------------------
+
+  In Flutter, the Future<void> method with the 'async' keyword is used to define an asynchronous function.
+
+  Future<void>": This specifies that the return type of the function. Void means it won;t immediately return a value. 
+  Instead of that, it will return a Future which will eventually complete with no value. ('void').
+
+  'async': This keyword is used to mark the function as asynchornous. It allows you to use the 'await' keyword within the body, 
+  which enables non-blocking execution of tasks. When an 'async' function encounters an 'await' expression, it pauses the 
+  execution of the function until the awaited operation completes.
+
+  By combining 'Future<void>' with the 'async' keyword, you can define functions that perform asynchronous operations
+  and manage their completion using 'await'. This enables you to write code that doesn't block the main execution thread
+  and can handle tasks such as network requests, file operations, or time-consuming computations without freezing the 
+  user interface.
+
+  --------------------------------------------------------------------------------
+
+  Future<User?> signInWithGoogle() async {
+    //This line opens the Google Sign-In flow and waits for the user to select an account. Once the user has selected an account
+    // it returns an instance of GoogleSignInAccount
+    final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+
+    Async: The async keyword is used to mark the function asynchronous, allowing you to use await inside the function body.
+
+    GoogleSignInAccount? googleUser: This declares a variable named googleUser of type GoogleSignInAccount?. 
+    The ? indicates that the variable can hold a nullable value.
+
+    await _googleSignIn.signIn(). This line invokes the signIn() method on the '_googleSignIn object. It is assumed that_
+    _googleSignIn is an instance of the GoogleSignIn class, which provides functionality for Google Sign-In.
+
+    The 'await' keyword is used to pause the execution of the function until the signIn() method completes. 
+
+    The Future<User?>
+
+    ___________________________________________________________________________________________
+
+    Future: In dart, a 'Future' represents a computation that doesn't complete immedieately. Where a normal function returns
+    a result, an asynchronous function returns a 'Future', which eventually completes with a value of some type or an error.
+
+    User?: This is a data type from the Firebase Authentication package. An instance of 'User' represents a user in Firebase.
+    The question mark(?) means that the 'User object can be nothing.
+
+    
